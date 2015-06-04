@@ -12,7 +12,7 @@ public class MPMapper1 extends Mapper<LongWritable, Text, Text, Text>{
 			Mapper<LongWritable, Text, Text, Text>.Context context)
 			throws IOException, InterruptedException {
 		String record = value.toString();
-		if(record.contains("CA")) {
+		if(record.contains("AZ")) {
 			String [] entries = record.split(",");
 			context.write(new Text(entries[0] + "       " + entries[2]), new Text(entries[1]));
 		}

@@ -1,6 +1,5 @@
 package com.cloudwick.maven.MultiMapper;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -15,7 +14,7 @@ import org.apache.hadoop.util.ToolRunner;
 public class MPDriver extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 
-        if (!(args.length == 3 || args.length == 2)) {
+        if (!(args.length == 3)) {
             System.out.printf(
                     "Usage: %s [generic options] <input dir> <output dir>\n", getClass()
                     .getSimpleName());
@@ -30,10 +29,12 @@ public class MPDriver extends Configured implements Tool {
         
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, MPMapper1.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, MPMapper2.class);
+        
+        FileInputFormat.setInputPaths(job,new Path(args[0]), new Path(args[1]));
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         
-    	job.setMapperClass(MPMapper1.class);
-    	job.setMapperClass(MPMapper2.class);
+//    	job.setMapperClass(MPMapper1.class);
+//    	job.setMapperClass(MPMapper2.class);
         
         job.setNumReduceTasks(0);
 
