@@ -1,0 +1,6 @@
+1001,sai,101
+1002,kiran,102
+1003,shrey,101
+1004,saurabh,103
+1005,rakesh,102
+1006,tandan,105

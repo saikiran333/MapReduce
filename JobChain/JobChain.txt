@@ -1,0 +1,6 @@
+1001,sai,CA,6000
+1002,kiran,CA,7000
+1003,saurabh,AZ,6000
+1004,shrey,CA,10000
+1005,tandan,AZ,4000
+1006,rakesh,AZ,1000
